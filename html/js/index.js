@@ -17,7 +17,19 @@ store.subscribe(() => {
 
 handleMatchIncrement("[data-increment='1']", 0)
 handleMatchDecrement("[data-decrement='1']", 0)
-handleMatchReset()
+document.querySelector(".lws-reset").addEventListener("click",() => {
+    store.dispatch({
+        type: "RESET"
+    })
+
+    document.querySelectorAll("[data-increment]").forEach((input) => {
+       input.value = "";
+    });
+
+     document.querySelectorAll("[data-decrement]").forEach((input) => {
+       input.value = "";
+    });
+});
 
 
 document.querySelector(".lws-addMatch").addEventListener("click",() => {

@@ -11,13 +11,13 @@ export function appendMatch() {
                             <h3 class="lws-matchName">Match ${index}</h3>
                         </div>
                         <div class="inc-dec">
-                            <form class="incrementForm">
+                            <form class="incrementForm" onsubmit="return false">
                                 <h4>Increment</h4>
                                 <input
                                     data-increment="${index}"
                                     type="number"
                                     name="increment"
-                                    class="lws-increment"
+                                    
                                 />
                             </form>
                             <form class="decrementForm">
@@ -26,7 +26,6 @@ export function appendMatch() {
                                     data-deccrement="${index}"
                                     type="number"
                                     name="decrement"
-                                    class="lws-decrement"
                                 />
                             </form>
                         </div>
@@ -34,8 +33,10 @@ export function appendMatch() {
                             <h2 class="lws-singleResult">0</h2>
                         </div>
                       </div>`;
+    const matchElement = document.createElement('div');
+    matchElement.innerHTML = matchHTML.trim();
     const allMatches = document.querySelector('.all-matches');
-    allMatches.innerHTML += matchHTML;
+    allMatches.appendChild(matchElement.firstChild);
     handleMatchIncrement(`[data-increment='${index}']`, index - 1)
     handleMatchDecrement(`[data-deccrement='${index}']`, index - 1)
   }

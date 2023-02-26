@@ -42,11 +42,11 @@ export function handleMatchReset() {
             type: "RESET"
         })
     
-        document.querySelectorAll(".lws-increment").forEach((input) => {
+        document.querySelectorAll("[data-increment]").forEach((input) => {
            input.value = "";
         });
     
-         document.querySelectorAll(".lws-decrement").forEach((input) => {
+         document.querySelectorAll("[data-decrement]").forEach((input) => {
            input.value = "";
         });
     });
